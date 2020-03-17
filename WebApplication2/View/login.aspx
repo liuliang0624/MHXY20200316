@@ -32,7 +32,7 @@
 </head>
 <body style="font-weight: 700">
     <form id="form1" runat="server">
-        <div class="auto-style3" style="height: 382px; width: 800px; float: inherit; left: 201px; position: absolute; right: 185px; top: 71px; background-color: #00FFFF;">
+        <div class="auto-style3" style="height: 382px; width: 800px; float: inherit; left: 0px; position: absolute; right: 1186px; top: 0px; background-color: #00FFFF;">
             <span class="auto-style1"><span class="auto-style2">
             <br />
             <br />
@@ -45,17 +45,16 @@
             <br />
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <br />
-            密码：<asp:GridView ID="GridView1" runat="server">
-            </asp:GridView>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            密码：<asp:TextBox ID="TextBox2" runat="server" style="text-align: left"></asp:TextBox>
             <br />
             <br />
            
             <asp:Button ID="Button3" runat="server" Text="登录" Height="43px" OnClick="Button3_Click" style="font-size: medium" Width="61px" />
        
-        &nbsp;&nbsp;
-           
-            <asp:Button ID="Button4" runat="server" Text="重置" Height="43px" style="font-size: medium" Width="61px" />
+        &nbsp;&nbsp;<asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="102px" style="margin-top: 0px">
+            
+            </asp:GridView>
+            &nbsp;<asp:Button ID="Button4" runat="server" Text="重置" Height="43px" style="font-size: medium" Width="61px" OnClick="Button4_Click" />
        
         </div>
     </form>

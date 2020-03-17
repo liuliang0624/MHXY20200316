@@ -10,7 +10,9 @@ namespace WebApplication2.Controller
     public class SQLMHXY
     {
 
-        private SqlConnection conn = null;
+         string str = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
+         static string SQLconnect= System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
+        SqlConnection conn = new SqlConnection();
         private SqlCommand cmd = null;
         //为了方便，设为全局对象的sql语句
         private string sql = null;
@@ -19,8 +21,7 @@ namespace WebApplication2.Controller
         {
             try
             {
-                conn = new SqlConnection();
-                conn.ConnectionString = "Integrated Security=SSPI;Data Source=(local);initial catalog=MHXY;";
+                conn.ConnectionString = str;
                 if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
@@ -37,8 +38,6 @@ namespace WebApplication2.Controller
         {
             try
             {
-                conn = new SqlConnection();
-                conn.ConnectionString = "Integrated Security=SSPI;Data Source=(local);initial catalog=MHXY;";
                 if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
@@ -46,9 +45,7 @@ namespace WebApplication2.Controller
             }
             catch (Exception)
             {
-
                 throw;
-
             }
         }
         //封装的数据库语句执行的方法  ，ExecuteNonQuery()通常情况下为数据库事务处理的首选，当需要执行插入，删除，修改等操作时，首选ExecuteNonQuery(),ExecuteNonQuery()执行成功返回的是一受影响的行数，对于"Create Table"和"Drop Table"语句，返回值是0，而对于其他类型的语句，返回值是-1，ExecuteNonQuery()操作数据时，可以不使用DataSet直接更改数据库中的数据。
@@ -59,19 +56,16 @@ namespace WebApplication2.Controller
 
 
         public void execute(String sql)
-        {            
+        {
             cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
-            
         }
         //方法根据sql语句输出SqlDataReader对象
         public SqlDataReader load(String sql)
-        {           
+        {
             cmd = new SqlCommand(sql, conn);
-            SqlDataReader dr = cmd.ExecuteReader();          
-            
+            SqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
-       
     }
 }
