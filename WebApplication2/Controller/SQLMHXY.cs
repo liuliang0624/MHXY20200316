@@ -7,16 +7,22 @@ using System.Web;
 
 namespace WebApplication2.Controller
 {
+    /// <summary>
+    /// SQL操作类
+    /// </summary>
     public class SQLMHXY
     {
-
-         string str = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
-         static string SQLconnect= System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
+        //连接数据库
+        string str = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
+        static string SQLconnect = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
         SqlConnection conn = new SqlConnection();
         private SqlCommand cmd = null;
         //为了方便，设为全局对象的sql语句
         private string sql = null;
-        //公用 打开数据库的方法
+
+        /// <summary>
+        /// 打开数据库的方法
+        /// </summary>
         public void openDatabase()
         {
             try
@@ -33,7 +39,10 @@ namespace WebApplication2.Controller
                 throw;
             }
         }
-        //公用 关闭数据库的方法
+
+        /// <summary>
+        /// 关闭数据库的方法
+        /// </summary>
         public void closeDatabase()
         {
             try
@@ -60,12 +69,42 @@ namespace WebApplication2.Controller
             cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
         }
-        //方法根据sql语句输出SqlDataReader对象
+
+        /// <summary>
+        /// 根据sql语句输出SqlDataReader对象
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
         public SqlDataReader load(String sql)
         {
             cmd = new SqlCommand(sql, conn);
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
+        }
+
+        /// <summary>
+        /// 根据sql语句输出SqlDataAdapter对象，用于填充gridView.sql为查询语句
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public SqlDataAdapter gridViewData(String sql)
+        {
+
+            conn = new SqlConnection(str);
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            return da;
+        }
+
+        /// <summary>
+        /// 执行查询，并返回查询所返回的结果集中第一行的第一列。 忽略其他列或行，sql为查询语句
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public String sqlExecuteScalar(String sql)
+        {
+            cmd = new SqlCommand(sql, conn);
+            String da = cmd.ExecuteScalar().ToString();
+            return da;
         }
     }
 }

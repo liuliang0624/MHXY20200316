@@ -43,7 +43,6 @@
             账号：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <br />
             密码：<asp:TextBox ID="TextBox2" runat="server" style="text-align: left"></asp:TextBox>
             <br />
@@ -51,12 +50,16 @@
            
             <asp:Button ID="Button3" runat="server" Text="登录" Height="43px" OnClick="Button3_Click" style="font-size: medium" Width="61px" />
        
-        &nbsp;&nbsp;<asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="102px" style="margin-top: 0px">
-            
-            </asp:GridView>
-            &nbsp;<asp:Button ID="Button4" runat="server" Text="重置" Height="43px" style="font-size: medium" Width="61px" OnClick="Button4_Click" />
+        &nbsp;&nbsp;&nbsp;<asp:Button ID="Button4" runat="server" Text="输入session" Height="43px" style="font-size: medium" Width="61px" OnClick="Button4_Click" />
        
+            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="显示数据格式" />
+            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="执行查询第一项" />
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>       
         </div>
+        <asp:Panel ID="Panel1" runat="server" Height="373px" style="margin-left: 803px" Width="345px">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="102px" style="margin-top: 5px; text-align: center;">
+            </asp:GridView>
+        </asp:Panel>
     </form>
 </body>
 </html>
