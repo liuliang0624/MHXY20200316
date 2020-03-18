@@ -37,7 +37,7 @@ namespace WebApplication2.View
                 {
                     TextBox1.Text = dr[0].ToString().Trim();
                     TextBox2.Text = dr[1].ToString().Trim();
-                    Response.Redirect("Test.aspx");
+                    Response.Redirect("test.aspx");
                     Response.End();
                 }
                 sQLMHXY.closeDatabase();
@@ -60,7 +60,11 @@ namespace WebApplication2.View
         {
             Session["LoginName"] = TextBox1.Text;
         }
-
+        /// <summary>
+        /// 查询表格并填充
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button5_Click(object sender, EventArgs e)
         {
             SQLMHXY sQLMHXY = new SQLMHXY();
@@ -82,6 +86,11 @@ namespace WebApplication2.View
             //配置sql语句
             string sqlStr = "SELECT TOP 1000 [ID],[NAME] ,[PASSWORD]  FROM [MHXY].[dbo].[login]";
             TextBox3.Text = sQLMHXY.sqlExecuteScalar(sqlStr);
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Main1/main.aspx");
         }
     }
 }

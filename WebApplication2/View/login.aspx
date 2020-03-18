@@ -55,6 +55,7 @@
             <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="显示数据格式" />
             <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="执行查询第一项" />
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>       
+            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="跳转主界面" />
         </div>
         <asp:Panel ID="Panel1" runat="server" Height="373px" style="margin-left: 803px" Width="345px">
             <asp:GridView ID="GridView1" runat="server" AllowPaging="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="102px" style="margin-top: 5px; text-align: center;">
