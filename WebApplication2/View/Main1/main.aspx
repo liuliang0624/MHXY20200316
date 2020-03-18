@@ -12,14 +12,13 @@
         <div style="width: 1200px; height: 800px; top: 50px; right: 50px; bottom: 20px; left: 20px">
             <div>
                 <div style="width: 838px; height: 461px; top: 124px; left: 305px; position: absolute">
-                    <asp:GridView ID="GridView1" runat="server">
+                    <asp:GridView ID="GridView1" runat="server" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <Columns>
                             <asp:ButtonField Text="按钮" />
                             <asp:CheckBoxField />
                             <asp:CommandField ShowEditButton="True" />
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:CommandField ShowDeleteButton="True" />
-                            <asp:DynamicField />
                         </Columns>
                     </asp:GridView>
                 </div>
