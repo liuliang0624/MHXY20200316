@@ -69,8 +69,8 @@ namespace WebApplication2.View
         {
             SQLMHXY sQLMHXY = new SQLMHXY();
             sQLMHXY.openDatabase();
-            //配置sql语句
-            string sqlStr = "SELECT TOP 1000 [ID],[NAME] ,[PASSWORD]  FROM [MHXY].[dbo].[login]";
+            //配置sql语句,查询登录表所有信息
+            string sqlStr = System.Configuration.ConfigurationManager.AppSettings["sqlLogin1"].ToString();           
             SqlDataAdapter da = sQLMHXY.gridViewData(sqlStr);
             sQLMHXY.closeDatabase();
             DataSet data = new DataSet();
@@ -78,16 +78,32 @@ namespace WebApplication2.View
             this.GridView1.DataSource = data;
             this.GridView1.DataBind();
         }
-
+        /// <summary>
+        /// 查询显示第一项第一列
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button6_Click(object sender, EventArgs e)
         {
-            SQLMHXY sQLMHXY = new SQLMHXY();
-            sQLMHXY.openDatabase();
-            //配置sql语句
-            string sqlStr = "SELECT TOP 1000 [ID],[NAME] ,[PASSWORD]  FROM [MHXY].[dbo].[login]";
-            TextBox3.Text = sQLMHXY.sqlExecuteScalar(sqlStr);
+            try
+            {
+                SQLMHXY sQLMHXY = new SQLMHXY();
+                sQLMHXY.openDatabase();
+                String str1 = TextBox3.Text.Trim();
+                //string sqlStr = System.Configuration.ConfigurationManager.AppSettings["sqlLogin1"].ToString();
+                string sqlStr = System.Configuration.ConfigurationManager.AppSettings[str1].ToString();
+                TextBox3.Text = sQLMHXY.sqlExecuteScalar(sqlStr);
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());                
+            }
         }
-
+        /// <summary>
+        /// 跳转到主界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button7_Click(object sender, EventArgs e)
         {
             Response.Redirect("Main1/main.aspx");

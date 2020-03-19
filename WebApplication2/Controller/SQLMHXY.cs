@@ -15,6 +15,8 @@ namespace WebApplication2.Controller
         //连接数据库
         string str = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
         static string SQLconnect = System.Configuration.ConfigurationManager.AppSettings["connStr"].ToString();
+        //String str1 = "connStr";
+        //static string SQLconnect = System.Configuration.ConfigurationManager.AppSettings[""+str1+""].ToString();
         SqlConnection conn = new SqlConnection();
         private SqlCommand cmd = null;
         //为了方便，设为全局对象的sql语句
