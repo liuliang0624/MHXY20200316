@@ -80,7 +80,15 @@ namespace WebApplication2.View.Main
 
             BindData();
         }
-
-
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)   
+        {
+            GridView1.EditIndex = -1;
+            BindData();
+        }
     }
 }

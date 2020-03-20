@@ -126,6 +126,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="View\login.aspx" />
     <Content Include="View\Main1\main.aspx" />
+    <Content Include="View\Main1\Main2.aspx" />
     <Content Include="View\test.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="View\Main1\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main1\Main2.aspx.cs">
+      <DependentUpon>Main2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Main1\Main2.aspx.designer.cs">
+      <DependentUpon>Main2.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>

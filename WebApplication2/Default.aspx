@@ -8,7 +8,7 @@
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
         <p><a href="WebForm1.aspx">WebForm1.aspx</a></p>
         <p>&nbsp;</p>
-        <p><a href="View/login.aspx">login.aspx</a></p>
+        <p><a href="View/login.aspx">登陆主界面</a></p>
     </div>
 
     <div class="row">
