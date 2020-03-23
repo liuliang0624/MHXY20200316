@@ -88,6 +88,7 @@ namespace WebApplication2.View.Main
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)   
         {
             GridView1.EditIndex = -1;
+
             BindData();
         }
     }
