@@ -89,8 +89,7 @@ namespace WebApplication2.View
             {
                 SQLMHXY sQLMHXY = new SQLMHXY();
                 sQLMHXY.openDatabase();
-                String str1 = TextBox3.Text.Trim();
-                //string sqlStr = System.Configuration.ConfigurationManager.AppSettings["sqlLogin1"].ToString();
+                String str1 = TextBox3.Text.Trim();                
                 string sqlStr = System.Configuration.ConfigurationManager.AppSettings[str1].ToString();
                 TextBox3.Text = sQLMHXY.sqlExecuteScalar(sqlStr);
             }
@@ -106,7 +105,7 @@ namespace WebApplication2.View
         /// <param name="e"></param>
         protected void Button7_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Main1/main.aspx");
+            Response.Redirect("Main/index.aspx");
         }
     }
 }
